@@ -1,5 +1,5 @@
 # Webscoket Bidding
-Realtime Chat Socket VietExpert
+Realtime Chat Socket Template
 ## Getting started
 - **Clone This Repository Using HTTPS** 
 ```bash
