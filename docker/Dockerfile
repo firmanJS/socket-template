@@ -1,0 +1,15 @@
+FROM node:16.14.0-alpine3.15
+
+RUN rm -rf /var/cache/apk/*
+
+LABEL maintainer="firmanjs"
+
+WORKDIR /usr/apps/socket-template-chat
+
+ENV NODE_ENV production
+
+COPY package.json /usr/apps/socket-template-chat/
+
+RUN yarn install && yarn cache clean --all
+
+CMD ["yarn", "start"]

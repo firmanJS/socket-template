@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  # Nodejs
+  socket-template-chat:
+    image: firmanjs/realtime-chat:prod
+    container_name: socket-template-chat
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - .:/usr/apps/socket-template-chat
+      - /usr/apps/socket-template-chat/node_modules
+      - ${HOST_KEY_PATH}:${HTTPS_KEY_PATH}
+      - ${HOST_CERT_PATH}:${HTTPS_CERT_PATH}
+    ports:
+      - "${APP_PORT}:${APP_PORT}"

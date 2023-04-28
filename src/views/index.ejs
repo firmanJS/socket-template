@@ -1,0 +1,39 @@
+<script type="text/javascript" src="<%= app_host %>:<%= port %>/socket.io/socket.io.js"></script>
+<input type="file" onchange="upload(this.files)" multiple/>
+
+<script type="text/javascript">
+  var socket = io(); //check socket running connection
+  socket.emit('join', {
+    'room': '35' // ambil dari 
+  }, (response) => {
+    console.log(response.status); // ok
+  });
+
+  function upload(files) {
+    // const data = {
+    //   'room': '35',
+    //   'headers': {
+    //     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdmlldGV4cGVydC1hcGkuZC5sb2dpcXVlLmNvLmlkL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjc0NDM4NzgxLCJleHAiOjE2NzQ2NTQ3ODEsIm5iZiI6MTY3NDQzODc4MSwianRpIjoiNll1aGl5NFplTmdPSUdCeCIsInN1YiI6IjQxIiwicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.WaXhk0PvavVveOc2f-fYb0-kerH6Jw-sJ88goZRTMs0',
+    //     'Content-Type':'multipart/form-data'
+    //   },
+    //   'payload': {
+    //     'recipient_id': '',
+    //     'recipient_group_id': '1',
+    //     'consultation_message_id': '',
+    //     'inquiry_id': '1',
+    //     'message':'hay',
+    //     'attachments': files,
+    //   }
+    // }
+    // socket.emit("send-chat", data, (response) => {
+    //   console.log(response);
+    // });
+  }
+
+  //listen
+  // socket.on('receive-msg', (data) => {
+  //   console.log(data.info);
+  // });
+
+</script>
+Welcome to <%= title %>
